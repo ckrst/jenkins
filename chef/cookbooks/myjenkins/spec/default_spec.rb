@@ -1,5 +1,7 @@
 require 'chefspec'
 
+at_exit { ChefSpec::Coverage.report! }
+
 describe 'myjenkins::default' do
   let (:chef_run) { ChefSpec::SoloRunner.converge(described_recipe) }
 
@@ -198,6 +200,9 @@ describe 'myjenkins::default' do
       expect(chef_run).to install_jenkins_plugin('workflow-step-api')
   end
 
-
+  it 'reloads jenkins configuration' do
+      chef_run.converge(described_recipe)
+      expect(chef_run).to execute_jenkins_command('reload-configuration')
+  end
 
 end

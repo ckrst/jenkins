@@ -46,3 +46,5 @@ jenkins_plugin 'ssh-slaves'
 jenkins_plugin 'subversion'
 jenkins_plugin 'vagrant'
 jenkins_plugin 'workflow-step-api'
+
+jenkins_command 'reload-configuration'
