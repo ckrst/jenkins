@@ -14,3 +14,5 @@ A few jenkins plugins (like git) don't show up the first time we run it, so
 vagrant halt
 vagrant up
 ```
+
+Your jenkins server should be available at http://localhost:8080
