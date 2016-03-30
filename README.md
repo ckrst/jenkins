@@ -1,4 +1,4 @@
-# jenkins
+# Jenkins
 A jenkins server for local development
 
 [![Build Status](https://travis-ci.org/vinik/jenkins.svg?branch=master)](https://travis-ci.org/vinik/jenkins)
@@ -27,7 +27,7 @@ vagrant provision
 ```
 
 
-# Testing
+# Testing (requires chefdk)
 
 ```
 chef exec rspec chef/cookbooks/myjenkins
