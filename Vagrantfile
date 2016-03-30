@@ -9,6 +9,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "chef_solo" do |chef|
     chef.cookbooks_path = ['chef/cookbooks']
+    chef.json = {
+    }
+    chef.add_recipe 'jenkins::master'
     chef.add_recipe 'myjenkins'
   end
 
