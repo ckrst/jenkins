@@ -16,3 +16,19 @@ vagrant up
 ```
 
 Your jenkins server should be available at http://localhost:8080
+
+# Creating builds
+
+Create your builds like the example job at `chef/cookbooks/myjenkins/recipes/hello_world.rb`
+Add the line `chef.add_recipe 'myjenkins::my_job'` to the chef provision block in Vagrantfile and run
+
+```
+vagrant provision
+```
+
+
+# Testing
+
+```
+chef exec rspec chef/cookbooks/myjenkins
+```
