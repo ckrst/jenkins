@@ -3,7 +3,8 @@ require 'chefspec'
 at_exit { ChefSpec::Coverage.report! }
 
 describe 'myjenkins::default' do
-  let (:chef_run) { ChefSpec::SoloRunner.converge(described_recipe) }
+  let (:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04', log_level: :fatal).converge(described_recipe) }
+
 
   it 'installs jenkins plugin analysis-core' do
     chef_run.converge(described_recipe)

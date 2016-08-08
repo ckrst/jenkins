@@ -6,6 +6,10 @@ Vagrant.configure(2) do |config|
 
     config.vm.network "forwarded_port", guest: 8080, host: 8080
 
+
+    config.vm.provider "docker" do |docker|
+    end
+
     config.vm.provision "chef_solo" do |chef|
 
         chef.cookbooks_path = ['chef/cookbooks']
@@ -26,5 +30,5 @@ Vagrant.configure(2) do |config|
         chef.add_recipe 'myjenkins::hello_world'
 
     end
-    
+
 end
