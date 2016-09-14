@@ -2,9 +2,13 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
+    #config.vm.define "jenkins"
     config.vm.box = "vinik/ubuntu"
 
     config.vm.network "forwarded_port", guest: 8080, host: 8080
+
+    config.berkshelf.enabled = true
+    config.berkshelf.berksfile_path = "custom.Berksfile"
 
     config.vm.provision "chef_solo" do |chef|
 
@@ -23,8 +27,8 @@ Vagrant.configure(2) do |config|
         chef.add_recipe 'java'
         chef.add_recipe 'jenkins::master'
         chef.add_recipe 'myjenkins::default'
-        chef.add_recipe 'myjenkins::hello_world'
+        #chef.add_recipe 'myjenkins::hello_world'
 
     end
-    
+
 end
