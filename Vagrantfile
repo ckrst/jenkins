@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
     config.vm.network "forwarded_port", guest: 8080, host: 8080
 
     config.berkshelf.enabled = true
-    config.berkshelf.berksfile_path = "custom.Berksfile"
+    config.berkshelf.berksfile_path = "chef/Berksfile"
 
     config.vm.provision "chef_solo" do |chef|
 
@@ -20,6 +20,11 @@ Vagrant.configure(2) do |config|
                 "jdk_version" => "7",
                 "oracle" => {
                     "accept_oracle_download_terms" => true
+                }
+            },
+            "jenkins": {
+                "master": {
+                    "jvm_options": "-Djenkins.install.runSetupWizard=false"
                 }
             }
         }
